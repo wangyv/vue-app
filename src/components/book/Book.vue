@@ -28,11 +28,22 @@
         </ul>
       </div>
 
+
+
+
+
+        <ul class="books">
+            <li v-for="book in bookList" :key="book.id" class="book clearfix" @click="getDetail(book.id)">
+                <h3>{{book.catalog}}</h3>
+            </li>
+        </ul>
+
     </div>
 
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data: () => {
     return {
@@ -60,25 +71,17 @@ export default {
       ],
       positionX: "",
       nowIndex: 0,
-      timer: null
+      timer: null,
+      bookList:[]
     };
+  },
+  created(){
+        this.getInfo(); 
   },
   mounted() {
     this.change();
   },
   methods: {
-    // change(){
-    //     let index = 0;
-    //     setInterval(()=>{
-    //         index++;
-    //         if(index == 5){
-    //             index = 0;
-    //         }
-    //         this.positionX = - index * 100 +'%';
-    //     },2000);
-    // }
-
-
     change(){
         this.timer = setInterval(()=>{
             this.nowIndex++;
@@ -86,6 +89,18 @@ export default {
                 this.nowIndex = 0;
             }
         },3000);
+    },
+    getInfo(){
+        axios
+          .get(`${API_PROXY}http://apis.juhe.cn/goodbook/catalog?key=9ac34ee4460aaf5ee23762bc7c8554d8`)
+          .then(res=>{
+              // console.log(res);
+              let list = res.data.result;
+              this.bookList = this.bookList.concat(list);               
+          });
+    },
+    getDetail(id){
+        this.$router.push(`/bookdetail/${id}`)      
     }
   }
 };
@@ -159,5 +174,15 @@ export default {
 .slide-leave-to{
     transform: translateX(-100%);
     opacity:0;
+}
+
+
+.book{
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #eee;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 </style>
