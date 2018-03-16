@@ -58,8 +58,7 @@ export default {
         }
     },
     created(){
-        this.getInfo();
-        
+        this.getInfo(); 
     },
     mounted(){
 
