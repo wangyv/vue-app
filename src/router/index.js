@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Movie from '@/components/movie/Movie'
 import Music from '@/components/music/Music'
 import Book from '@/components/book/Book'
+import Bookdetail from '@/components/book/Bookdetail'
 import MovieDetail from '@/components/movie/MovieDetail'
 import Photo from '@/components/photo/Photo'
 import MusicAlbums from '@/components/music/MusicAlbums'
@@ -36,6 +37,13 @@ export default new Router({
         path: '/book',
         name: 'book',
         component: Book,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
+      },{
+        path: '/bookdetail/:bookId',
+        name: 'bookDetail',
+        component: Bookdetail,
         beforeEnter(to,from,next){
           from.name === null? next('/') : next();
         }
