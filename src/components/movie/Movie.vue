@@ -61,7 +61,6 @@ export default {
         this.getInfo(); 
     },
     mounted(){
-
         window.onscroll = () => {
             let scrollTop = Math.floor(document.body.scrollTop || document.documentElement.scrollTop);
             let scrollHeight = document.documentElement.scrollHeight;
