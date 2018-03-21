@@ -1,6 +1,8 @@
 <template>
   <div class="header" :style="{background:bgColor}">
-    <span class="btn" :style="{background:bgColor}" @click="$emit('tapped',0)"><router-link to="/">首页</router-link></span>
+    <span class="btn" :style="{background:bgColor}" @click="$emit('tapped')">
+      <router-link to="/">首页</router-link>
+    </span>
     
     <h2 class="title">
       <slot name="title"></slot>
