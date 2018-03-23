@@ -76,7 +76,7 @@ export default {
     };
   },
   created(){
-        this.getInfo(); 
+    this.getInfo(); 
   },
   mounted() {
     this.change();
@@ -162,9 +162,6 @@ export default {
 }
 .slide-enter-active,.slide-leave-active{
     transition: all 1.5s linear;
-}
-.slide-enter-active{
-    transition: all 1s linear;
 }
 .slide-enter-to, .slide-leave{
   transform: translateX(0);
