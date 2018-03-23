@@ -9,8 +9,8 @@ Vue.use(VueTouch,{name: 'v-touch'})
 
 import '@/assets/js/rem.js'
 import '@/assets/css/reset.css'
-import '@/assets/js/fastclick.js'
-Vue.config.productionTip = false
+import '@/assets/js/fastclick.js' //放置点透
+Vue.config.productionTip = false //防止vue启动时生成生产提示
 
 global.API_PROXY = 'https://bird.ioliu.cn/v2/?url='
 
