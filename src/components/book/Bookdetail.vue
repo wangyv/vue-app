@@ -111,7 +111,6 @@ p{
 .detail-show{
     color:#999;
     margin-right: 0;
-    /* height: 3.8rem;   */
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
